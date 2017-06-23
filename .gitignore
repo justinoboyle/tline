@@ -5,6 +5,9 @@ build
 temp/
 temp
 
+docs
+docs/
+
 ### macOS ###
 *.DS_Store
 .AppleDouble

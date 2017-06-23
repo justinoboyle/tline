@@ -9,9 +9,7 @@
     "build-docs": "documentation build src/** -f html -o docs/",
     "start": "ENV=production node build/index.js",
     "dev": "ENV=dev babel-watch src/index.js",
-    "test": "mocha --compilers js:babel-register",
-    "validate": "npm ls",
-    "lint": "jshint ."
+    "test": "mocha --compilers js:babel-register"
   },
   "author": "Justin O'Boyle",
   "license": "ISC",
@@ -39,7 +37,6 @@
     "mongorito": "^3.0.1"
   },
   "pre-commit": [
-    "validate",
     "test",
     "build-docs"
   ]
