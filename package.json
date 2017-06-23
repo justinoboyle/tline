@@ -1,0 +1,46 @@
+{
+  "name": "tline",
+  "version": "1.0.0",
+  "description": "Timeline datatypes with layers for JavaScript.",
+  "main": "src/index.js",
+  "scripts": {
+    "clean": "rm -rf ./build && mkdir build",
+    "build": "npm run clean; babel -d ./build ./src -s",
+    "build-docs": "documentation build src/** -f html -o docs/",
+    "start": "ENV=production node build/index.js",
+    "dev": "ENV=dev babel-watch src/index.js",
+    "test": "mocha --compilers js:babel-register",
+    "validate": "npm ls",
+    "lint": "jshint ."
+  },
+  "author": "Justin O'Boyle",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-module-method": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-regenerator-runtime": "^6.5.0",
+    "babel-register": "^6.24.1",
+    "babel-runtime": "^6.23.0",
+    "babel-watch": "^2.0.6",
+    "documentation": "^4.0.0-rc.1",
+    "mocha": "^3.4.2",
+    "precommit-hook": "^3.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "mongorito": "^3.0.1"
+  },
+  "pre-commit": [
+    "validate",
+    "test",
+    "build-docs"
+  ]
+}
